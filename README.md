@@ -5,6 +5,7 @@ This is a collection of skins I've used or developed over time. Some are polishe
 ![](https://raw.githubusercontent.com/hxovc/hxovc-skins/main/Kasumi%20V1.3/Kasumi%20Skin%20V1.3.png)
 ## [Pre Kasumi V1.2.5 (hxovc)](https://hxovc.s-ul.eu/wzDupzJi)
 ![](https://raw.githubusercontent.com/hxovc/hxovc-skins/refs/heads/main/Pre%20Kasumi%20(V1.2.5%20hxovc)/hxovc%201.2.5.png)
+This is just a transition to "Kasumi" Styled.
 ## [Rafis But Clack](https://github.com/hxovc/hxovc-skins/raw/main/Rafis%20But%20Clack/Rafis%20but%20Clack.osk)
 ![](https://raw.githubusercontent.com/hxovc/hxovc-skins/main/Rafis%20But%20Clack/Rafis%20but%20clack.png)
 ## [Moyai Balls](https://github.com/hxovc/hxovc-skins/raw/main/Moyai%20Balls/Moyai%20Balls.osk)
