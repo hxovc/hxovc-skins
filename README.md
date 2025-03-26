@@ -2,6 +2,10 @@
 This is a collection of skins I've used or developed over time. Some are polished and ready for play, while others are older or "Alpha" versions that I experimented with. Feel free to browse or download them.
 
 ## Made by hxovc
+## Kasumi V1.4 (COMING SOON) 
+![](https://raw.githubusercontent.com/hxovc/hxovc-skins/refs/heads/main/Coming%20Soon/HC%201.4%20Kasumi%20.png)
+## Kasumi V1.3 Remake (COMING SOON) 
+![](https://raw.githubusercontent.com/hxovc/hxovc-skins/refs/heads/main/Coming%20Soon/HC%201.3%20Remake.png)
 ## [Discarded Kasumi V1.4 Concept (hxovc)](https://github.com/hxovc/hxovc-skins/raw/refs/heads/main/Discarded%20Concept%20Kasumi%201.4/-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20hxovc%20Unused%20NM%201.4%20+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-.osk)
 ![](https://raw.githubusercontent.com/hxovc/hxovc-skins/refs/heads/main/Discarded%20Concept%20Kasumi%201.4/Unused%20NM%201.4.png)
 This was intended to be Kasumi V1.4, but it was discarded. It's unfinished and will remain that way.
