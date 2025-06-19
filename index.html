@@ -1,12 +1,1439 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>hxovc – osu! Skin Showcase</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 hxovc Skins Compilation 🎮</title>
+    <meta name="description" content="A collection of osu! skins by hxovc - from community favorites to personal creations. Featuring the Kasumi series and AegleWorks designs." />
+    <meta name="author" content="hxovc" />
+    <meta name="keywords" content="osu, skins, gaming, hxovc, kasumi, osu skins, rhythm game" />
+
+    <!-- Google Fonts - Nunito and Comfortaa -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #00D4FF;
+            --secondary: #0099CC;
+            --accent: #66E5FF;
+            --accent-2: #3366FF;
+            --bg-dark: #0A1122;
+            --bg-darker: #061019;
+            --bg-card: rgba(0, 212, 255, 0.1);
+            --text-light: #E8F4FD;
+            --text-muted: #A3C7E8;
+            --border: rgba(0, 212, 255, 0.3);
+            --glow-blue: rgba(0, 212, 255, 0.4);
+            --glow-cyan: rgba(102, 229, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #061019 0%, #0A1122 25%, #1A2E4D 50%, #2B4A7A 75%, #3366FF 100%);
+            background-attachment: fixed;
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(102, 229, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 20%, rgba(51, 102, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Enhanced animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(1deg); }
+            50% { transform: translateY(-25px) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(-1deg); }
+        }
+
+        @keyframes floatReverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(20px) rotate(-1deg); }
+            50% { transform: translateY(30px) rotate(0deg); }
+            75% { transform: translateY(15px) rotate(1deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 20px var(--glow-blue),
+                    0 0 40px var(--glow-blue),
+                    inset 0 0 20px rgba(0, 212, 255, 0.1);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 30px var(--glow-cyan),
+                    0 0 60px var(--glow-cyan),
+                    inset 0 0 30px rgba(102, 229, 255, 0.2);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Header super fancy */
+        .header {
+            background: linear-gradient(135deg, 
+                rgba(6, 16, 25, 0.95) 0%, 
+                rgba(10, 17, 34, 0.9) 50%, 
+                rgba(26, 46, 77, 0.95) 100%);
+            backdrop-filter: blur(20px) saturate(180%);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--border);
+            box-shadow: 
+                0 8px 32px rgba(0, 212, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3rem;
+        }
+
+        .logo {
+            font-family: 'Comfortaa', cursive;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary), var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px var(--glow-blue);
+            animation: pulse 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            background: rgba(0, 212, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: rgba(0, 212, 255, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            transition: all 0.4s ease;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover::before {
+            width: 80%;
+        }
+
+        /* Hero Section extremely fancy */
+        .hero {
+            padding: 10rem 3rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(102, 229, 255, 0.15) 0%, transparent 50%),
+                conic-gradient(from 0deg at 50% 50%, rgba(51, 102, 255, 0.1), transparent, rgba(0, 212, 255, 0.1));
+            animation: floatReverse 20s ease-in-out infinite;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Comfortaa', cursive;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent), var(--accent-2), var(--primary));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 60px var(--glow-blue);
+            animation: glow 4s ease-in-out infinite, shimmer 6s ease-in-out infinite;
+            position: relative;
+        }
+
+        .hero h1::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            font-weight: 500;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            background-size: 300% 300%;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: glow 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Comfortaa', cursive;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 20px 40px rgba(0, 212, 255, 0.4),
+                0 0 50px var(--glow-cyan);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        /* Section Styles ultra fancy */
+        .section {
+            padding: 6rem 0;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+        }
+
+        .section-title {
+            font-family: 'Comfortaa', cursive;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            text-align: center;
+            margin-bottom: 4rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent), var(--accent-2));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 5s ease-in-out infinite;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            transform: translateX(-50%);
+            border-radius: 10px;
+            box-shadow: 0 0 20px var(--glow-blue);
+        }
+
+        /* Skin Cards super elaborate */
+        .skins-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .skin-card {
+            background: linear-gradient(135deg, 
+                rgba(0, 212, 255, 0.1) 0%, 
+                rgba(102, 229, 255, 0.05) 50%, 
+                rgba(51, 102, 255, 0.1) 100%);
+            border: 2px solid var(--border);
+            border-radius: 25px;
+            padding: 2rem;
+            backdrop-filter: blur(20px) saturate(180%);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .skin-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(0, 212, 255, 0.3),
+                0 0 50px var(--glow-cyan),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
+            border-color: var(--accent);
+        }
+
+        .skin-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary), var(--accent), var(--accent-2));
+            background-size: 300% 300%;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        .skin-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        .skin-card:hover .skin-image {
+            transform: scale(1.08) rotate(1deg);
+            filter: brightness(1.1) contrast(1.2) saturate(1.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .skin-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-family: 'Comfortaa', cursive;
+            text-shadow: 0 0 20px var(--glow-blue);
+        }
+
+        .skin-description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .skin-status {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Comfortaa', cursive;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-coming-soon {
+            background: linear-gradient(45deg, rgba(255, 165, 0, 0.2), rgba(255, 140, 0, 0.3));
+            color: #FFB347;
+            border: 2px solid #FF8C00;
+            box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
+        }
+
+        .status-available {
+            background: linear-gradient(45deg, rgba(34, 197, 94, 0.2), rgba(16, 185, 129, 0.3));
+            color: #4ADE80;
+            border: 2px solid #10B981;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .status-discarded {
+            background: linear-gradient(45deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 127, 0.3));
+            color: #FB7185;
+            border: 2px solid #DC2626;
+            box-shadow: 0 0 20px rgba(220, 38, 127, 0.3);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .download-btn {
+            flex: 1;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent), var(--secondary));
+            background-size: 300% 300%;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Comfortaa', cursive;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .download-btn.disabled {
+            background: linear-gradient(45deg, rgba(148, 163, 184, 0.3), rgba(100, 116, 139, 0.4));
+            color: var(--text-muted);
+            cursor: not-allowed;
+            animation: none;
+        }
+
+        .download-btn.disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Timeline ultra fancy */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--primary), var(--accent), var(--accent-2), var(--primary));
+            background-size: 100% 300%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+            box-shadow: 0 0 20px var(--glow-blue);
+            animation: shimmer 8s ease-in-out infinite;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: linear-gradient(135deg, 
+                rgba(0, 212, 255, 0.1) 0%, 
+                rgba(102, 229, 255, 0.05) 50%, 
+                rgba(51, 102, 255, 0.1) 100%);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            width: 45%;
+            backdrop-filter: blur(20px) saturate(180%);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            background-size: 300% 300%;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+            border-color: var(--accent);
+        }
+
+        .timeline-content h3 {
+            font-family: 'Comfortaa', cursive;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 
+                0 0 30px var(--glow-blue),
+                inset 0 0 10px rgba(255, 255, 255, 0.3);
+            border: 3px solid var(--bg-dark);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* Footer extremely fancy */
+        .footer {
+            background: linear-gradient(135deg, 
+                rgba(6, 16, 25, 0.95) 0%, 
+                rgba(10, 17, 34, 0.9) 50%, 
+                rgba(26, 46, 77, 0.95) 100%);
+            padding: 4rem 0 2rem;
+            border-top: 2px solid var(--border);
+            margin-top: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--accent), var(--primary), transparent);
+            box-shadow: 0 0 20px var(--glow-blue);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-family: 'Comfortaa', cursive;
+            font-size: 1.3rem;
+            text-shadow: 0 0 20px var(--glow-blue);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .footer-bottom p:first-child {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-family: 'Comfortaa', cursive;
+        }
+
+        /* Enhanced Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 0 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 8rem 2rem 4rem;
+            }
+
+            .skins-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                text-align: left !important;
+                padding-left: 4rem;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .container {
+                padding: 0 2rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+
+        /* Scroll behavior enhanced */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation ultra smooth */
+        .loading {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .loading:nth-child(1) { animation-delay: 0.1s; }
+        .loading:nth-child(2) { animation-delay: 0.3s; }
+        .loading:nth-child(3) { animation-delay: 0.5s; }
+        .loading:nth-child(4) { animation-delay: 0.7s; }
+        .loading:nth-child(5) { animation-delay: 0.9s; }
+        .loading:nth-child(6) { animation-delay: 1.1s; }
+
+        /* Particle effects */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.6;
+            box-shadow: 0 0 10px var(--glow-blue);
+        }
+
+        .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 60%; left: 20%; animation-delay: 1s; }
+        .particle:nth-child(3) { top: 40%; left: 70%; animation-delay: 2s; }
+        .particle:nth-child(4) { top: 80%; left: 60%; animation-delay: 3s; }
+        .particle:nth-child(5) { top: 30%; left: 90%; animation-delay: 4s; }
+
+        /* Skin info section styles */
+        .skin-info {
+            margin-top: 1.5rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, 
+                rgba(0, 212, 255, 0.05) 0%, 
+                rgba(102, 229, 255, 0.03) 50%, 
+                rgba(51, 102, 255, 0.05) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-section h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-family: 'Comfortaa', cursive;
+            font-size: 1.2rem;
+        }
+
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-section li {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .info-section li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .screenshot-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .screenshot-gallery img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .screenshot-gallery img:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+        }
+    </style>
 </head>
 <body>
-  <h1>Hello world!</h1>
-  <p>owo.</p>
+    <!-- Floating particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">🎯 hxovc Skins</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skins">Skins</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-text="🎯 hxovc Skins Compilation 🎮">🎯 hxovc Skins Compilation 🎮</h1>
+            <p>A collection of skins I've used or developed over time. Some are polished and ready for play, while others are older or "Alpha" versions that I experimented with.</p>
+            <a href="#skins" class="cta-button">
+                <i class="fas fa-download"></i> Explore Skins
+            </a>
+        </div>
+    </section>
+
+    <!-- Skins Section -->
+    <section id="skins" class="section">
+        <div class="container">
+            <h2 class="section-title">🛠️ Skins by hxovc</h2>
+            
+            <div class="skins-grid">
+                <!-- Kasumi V1.4 -->
+                <div class="skin-card loading">
+                    <img src="https://raw.githubusercontent.com/hxovc/hxovc-skins/refs/heads/main/Coming%20Soon/HC%201.4%20Kasumi%20.png" alt="Kasumi V1.4" class="skin-image">
+                    <h3 class="skin-title">🧪 [霞] Kasumi [NM] 1.4</h3>
+                    <span class="skin-status status-coming-soon">COMING SOON</span>
+                    <p class="skin-description">
+                        The second release of my osu! skin, crafted to give identity to my gameplay. This version marks the debut of <strong>AegleWorks</strong>.
+                    </p>
+                    <div class="button-group">
+                        <a href="#" class="download-btn disabled">Soon™</a>
+                    </div>
+
+                    <!-- Static Info Section -->
+                    <div class="skin-info">
+                        <div class="info-grid">
+                            <div class="info-section">
+                                <h4>🎮 Supported Modes</h4>
+                                <ul>
+                                    <li>osu!standard</li>
+                                    <li>osu!taiko</li>
+                                    <li>osu!catch</li>
+                                    <li>osu!mania</li>
+                                </ul>
+                            </div>
+                            <div class="info-section">
+                                <h4>🎨 Features</h4>
+                                <ul>
+                                    <li>Pastel color palette</li>
+                                    <li>Clean visuals</li>
+                                    <li>Big Kasumi artwork</li>
+                                    <li>Polished HP bar with aura</li>
+                                    <li>Illustrated mod icons</li>
+                                    <li>Modern pause menu</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="info-section">
+                            <h4>📸 Additional Screenshots</h4>
+                            <div class="screenshot-gallery">
+                                <img src="https://raw.githubusercontent.com/hxovc/hxovc-skins/refs/heads/main/Coming%20Soon/KasumiV1.4MODS.png" alt="Kasumi V1.4 Mods">
+                                <img src="https://raw.githubusercontent.com/hxovc/hxovc-skins/refs/heads/main/Coming%20Soon/KasumiV1.4SongSelect.png" alt="Kasumi V1.4 Song Select">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kasumi V1.3 Remake -->
+                <div class="skin-card loading">
+                    <img src="https://raw.githubusercontent.com/hxovc/hxovc-skins/refs/heads/main/Coming%20Soon/HC%201.3%20Remake.png" alt="Kasumi V1.3 Remake" class="skin-image">
+                    <h3 class="skin-title">🧪 Kasumi V1.3 Remake</h3>
+                    <span class="skin-status status-coming-soon">COMING SOON</span>
+                    <p class="skin-description">
+                        An enhanced and reimagined version of the popular Kasumi V1.3 with new visual elements.
+                    </p>
+                    <div class="button-group">
+                        <a href="#" class="download-btn disabled">Soon™</a>
+                    </div>
+
+                    <!-- Static Info Section -->
+                    <div class="skin-info">
+                        <div class="info-grid">
+                            <div class="info-section">
+                                <h4>🎮 Supported Modes</h4>
+                                <ul>
+                                    <li>osu!standard</li>
+                                </ul>
+                            </div>
+                            <div class="info-section">
+                                <h4>🎨 Features</h4>
+                                <ul>
+                                    <li>Enhanced UI elements</li>
+                                    <li>Modern design touches</li>
+                                    <li>Improved visual clarity</li>
+                                    <li>Based on beloved V1.3</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discarded Kasumi V1.4 -->
+                <div class="skin-card loading">
+                    <img src="https://raw.githubusercontent.com/hxovc/hxovc-skins/refs/heads/main/Discarded%20Concept%20Kasumi%201.4/Unused%20NM%201.4.png" alt="Discarded Kasumi" class="skin-image">
+                    <h3 class="skin-title">🗑️ Discarded Kasumi V1.4 Concept</h3>
+                    <span class="skin-status status-discarded">DISCARDED</span>
+                    <p class="skin-description">
+                        <em>An unfinished path. Abandoned, but never forgotten.</em>
+                    </p>
+                    <div class="button-group">
+                        <a href="https://github.com/hxovc/hxovc-skins/raw/refs/heads/main/Discarded%20Concept%20Kasumi%201.4/-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20hxovc%20Unused%20NM%201.4%20+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-.osk" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <!-- Static Info Section -->
+                    <div class="skin-info">
+                        <div class="info-grid">
+                            <div class="info-section">
+                                <h4>🎮 Supported Modes</h4>
+                                <ul>
+                                    <li>osu!standard (partial)</li>
+                                </ul>
+                            </div>
+                            <div class="info-section">
+                                <h4>⚠️ Notes</h4>
+                                <ul>
+                                    <li>Experimental concept</li>
+                                    <li>Incomplete elements</li>
+                                    <li>Historical interest only</li>
+                                    <li>May have bugs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kasumi V1.3 -->
+                <div class="skin-card loading">
+                    <img src="https://raw.githubusercontent.com/hxovc/hxovc-skins/main/Kasumi%20V1.3/Kasumi%20Skin%20V1.3.png" alt="Kasumi V1.3" class="skin-image">
+                    <h3 class="skin-title">✅ Kasumi V1.3</h3>
+                    <span class="skin-status status-available">AVAILABLE</span>
+                    <p class="skin-description">
+                        The first stable version of the Kasumi series. Clean design and functional.
+                    </p>
+                    <div class="button-group">
+                        <a href="https://drive.usercontent.google.com/download?id=1EgXzgZ6WIBWG2JltI4cHznagKodQwt4a&export=download" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <!-- Static Info Section -->
+                    <div class="skin-info">
+                        <div class="info-grid">
+                            <div class="info-section">
+                                <h4>🎮 Supported Modes</h4>
+                                <ul>
+                                    <li>osu!standard</li>
+                                </ul>
+                            </div>
+                            <div class="info-section">
+                                <h4>🎨 Features</h4>
+                                <ul>
+                                    <li>Classic clean design</li>
+                                    <li>Stable and tested</li>
+                                    <li>Proven gameplay</li>
+                                    <li>Minimal distractions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pre-Kasumi V1.2.5 -->
+                <div class="skin-card loading">
+                    <img src="https://raw.githubusercontent.com/hxovc/hxovc-skins/refs/heads/main/Pre%20Kasumi%20(V1.2.5%20hxovc)/hxovc%201.2.5.png" alt="Pre-Kasumi V1.2.5" class="skin-image">
+                    <h3 class="skin-title">🕓 Pre-Kasumi V1.2.5</h3>
+                    <span class="skin-status status-available">AVAILABLE</span>
+                    <p class="skin-description">
+                        Early prototype leading to the Kasumi line. Experimental version without finishing touches.
+                    </p>
+                    <div class="button-group">
+                        <a href="https://hxovc.s-ul.eu/wzDupzJi" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <!-- Static Info Section -->
+                    <div class="skin-info">
+                        <div class="info-grid">
+                            <div class="info-section">
+                                <h4>🎮 Supported Modes</h4>
+                                <ul>
+                                    <li>osu!standard</li>
+                                </ul>
+                            </div>
+                            <div class="info-section">
+                                <h4>🔬 Features</h4>
+                                <ul>
+                                    <li>Early prototype</li>
+                                    <li>Historical significance</li>
+                                    <li>Raw concepts</li>
+                                    <li>Unfinished elements</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">🎮 Skins I've Used</h2>
+            
+            <div class="skins-grid">
+                <!-- Rafis But Clack -->
+                <div class="skin-card loading">
+                    <img src="https://raw.githubusercontent.com/hxovc/hxovc-skins/main/Rafis%20But%20Clack/Rafis%20but%20clack.png" alt="Rafis But Clack" class="skin-image">
+                    <h3 class="skin-title">💥 Rafis But Clack</h3>
+                    <span class="skin-status status-available">AVAILABLE</span>
+                    <p class="skin-description">
+                        A variation of the famous Rafis skin with enhanced sound effects.
+                    </p>
+                    <div class="button-group">
+                        <a href="https://github.com/hxovc/hxovc-skins/raw/main/Rafis%20But%20Clack/Rafis%20but%20Clack.osk" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <!-- Static Info Section -->
+                    <div class="skin-info">
+                        <div class="info-grid">
+                            <div class="info-section">
+                                <h4>🎮 Features</h4>
+                                <ul>
+                                    <li>Enhanced click sounds</li>
+                                    <li>Refined visuals</li>
+                                    <li>Community favorite</li>
+                                    <li>Competitive ready</li>
+                                </ul>
+                            </div>
+                            <div class="info-section">
+                                <h4>📝 Notes</h4>
+                                <ul>
+                                    <li>Based on Rafis skin</li>
+                                    <li>Modified audio</li>
+                                    <li>Popular choice</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Continue with other skins with static info sections... -->
+                <div class="skin-card loading">
+                    <img src="https://raw.githubusercontent.com/hxovc/hxovc-skins/main/Moyai%20Balls/Moyai%20balls.png" alt="Moyai Balls" class="skin-image">
+                    <h3 class="skin-title">🗿 Moyai Balls</h3>
+                    <span class="skin-status status-available">AVAILABLE</span>
+                    <p class="skin-description">
+                        A fun meme-themed skin for a unique gaming experience.
+                    </p>
+                    <div class="button-group">
+                        <a href="https://github.com/hxovc/hxovc-skins/raw/main/Moyai%20Balls/Moyai%20Balls.osk" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="skin-info">
+                        <div class="info-grid">
+                            <div class="info-section">
+                                <h4>🎮 Features</h4>
+                                <ul>
+                                    <li>Meme-themed design</li>
+                                    <li>Fun visual elements</li>
+                                    <li>Unique experience</li>
+                                    <li>Entertainment focused</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bunny Nurse -->
+                <div class="skin-card loading">
+                    <img src="https://raw.githubusercontent.com/hxovc/hxovc-skins/main/bunny%20nurse/bunny%20nurse.png" alt="Bunny Nurse" class="skin-image">
+                    <h3 class="skin-title">🐰 Bunny Nurse</h3>
+                    <span class="skin-status status-available">AVAILABLE</span>
+                    <p class="skin-description">
+                        Kawaii-themed skin with soft colors and cute aesthetics.
+                    </p>
+                    <div class="button-group">
+                        <a href="https://hxovc.s-ul.eu/sY4O6Fob" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="skin-info">
+                        <div class="info-grid">
+                            <div class="info-section">
+                                <h4>🎮 Features</h4>
+                                <ul>
+                                    <li>Kawaii aesthetic</li>
+                                    <li>Soft color palette</li>
+                                    <li>Cute visual elements</li>
+                                    <li>Relaxing theme</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kune259 -->
+                <div class="skin-card loading">
+                    <img src="https://raw.githubusercontent.com/hxovc/hxovc-skins/main/Kune259/Kune259.png" alt="Kune259" class="skin-image">
+                    <h3 class="skin-title">🎯 Kune259</h3>
+                    <span class="skin-status status-available">AVAILABLE</span>
+                    <p class="skin-description">
+                        Modern and clean skin, ideal for competitive gameplay.
+                    </p>
+                    <div class="button-group">
+                        <a href="https://github.com/hxovc/hxovc-skins/raw/main/Kune259/kune259.osk" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="skin-info">
+                        <div class="info-grid">
+                            <div class="info-section">
+                                <h4>🎮 Features</h4>
+                                <ul>
+                                    <li>Modern design</li>
+                                    <li>Clean interface</li>
+                                    <li>Competitive focused</li>
+                                    <li>Minimal distractions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aristia w/ Trail -->
+                <div class="skin-card loading">
+                    <img src="https://raw.githubusercontent.com/hxovc/hxovc-skins/main/Aristia%20w%20trail/Aristia%20w%20trail.png" alt="Aristia w/ Trail" class="skin-image">
+                    <h3 class="skin-title">🌠 Aristia w/ Trail</h3>
+                    <span class="skin-status status-available">AVAILABLE</span>
+                    <p class="skin-description">
+                        Modified version of the popular Aristia skin with enhanced trail effects.
+                    </p>
+                    <div class="button-group">
+                        <a href="https://github.com/hxovc/hxovc-skins/raw/main/Aristia%20w%20trail/Aristia%20w%20trail.osk" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="skin-info">
+                        <div class="info-grid">
+                            <div class="info-section">
+                                <h4>🎮 Features</h4>
+                                <ul>
+                                    <li>Enhanced trail effects</li>
+                                    <li>Based on Aristia</li>
+                                    <li>Visual improvements</li>
+                                    <li>Community tested</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 404 AimNotFound -->
+                <div class="skin-card loading">
+                    <img src="https://raw.githubusercontent.com/hxovc/hxovc-skins/main/404ANF%202018/404%20Aim%20not%20found.png" alt="404 AimNotFound" class="skin-image">
+                    <h3 class="skin-title">🧠 404 AimNotFound</h3>
+                    <span class="skin-status status-available">AVAILABLE</span>
+                    <p class="skin-description">
+                        Classic skin with 404 error theme, perfect for nostalgic players.
+                    </p>
+                    <div class="button-group">
+                        <a href="https://github.com/hxovc/hxovc-skins/raw/main/404ANF%202018/404%20AimNotFound%20v2.osk" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="skin-info">
+                        <div class="info-grid">
+                            <div class="info-section">
+                                <h4>🎮 Features</h4>
+                                <ul>
+                                    <li>404 error theme</li>
+                                    <li>Classic design</li>
+                                    <li>Nostalgic feel</li>
+                                    <li>Retro aesthetics</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monko2K -->
+                <div class="skin-card loading">
+                    <img src="https://raw.githubusercontent.com/hxovc/hxovc-skins/main/Monko2K/Monko2K.png" alt="Monko2K" class="skin-image">
+                    <h3 class="skin-title">🎯 Monko2K</h3>
+                    <span class="skin-status status-available">AVAILABLE</span>
+                    <p class="skin-description">
+                        Minimalist and functional skin, designed for maximum performance.
+                    </p>
+                    <div class="button-group">
+                        <a href="https://github.com/hxovc/hxovc-skins/raw/main/Monko2K/Monko2K.osk" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="skin-info">
+                        <div class="info-grid">
+                            <div class="info-section">
+                                <h4>🎮 Features</h4>
+                                <ul>
+                                    <li>Minimalist design</li>
+                                    <li>Performance focused</li>
+                                    <li>Clean interface</li>
+                                    <li>Functional layout</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="section">
+        <div class="container">
+            <h2 class="section-title">📅 Development Timeline</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Kasumi V1.4 (2024)</h3>
+                        <p>Debut of AegleWorks. Full support for all game modes, illustrated mod icons and redesigned pause menu.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Kasumi V1.3 (2023)</h3>
+                        <p>First stable version of the Kasumi series. Clean design focused on osu!standard.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Pre-Kasumi V1.2.5 (2023)</h3>
+                        <p>Early prototype that led to the Kasumi line. Experimental version without finishing touches.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Experimentation (2022-2023)</h3>
+                        <p>Period of using and modifying popular skins like Rafis, Aristia and others.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">💭 About the Project</h2>
+            
+            <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+                <div class="skin-card">
+                    <h3 style="color: var(--primary); margin-bottom: 2rem; font-family: 'Comfortaa', cursive; font-size: 2rem;">
+                        "Beautiful Suffering" 💙
+                    </h3>
+                    <p style="font-style: italic; margin-bottom: 3rem; font-size: 1.3rem; line-height: 1.6;">
+                        "I made this skin out of boredom — just trying to feel like an artist, even if I'm not. Turns out, making it was a kind of beautiful suffering."
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.1rem;">
+                        This repository functions as a timeline of the skins I've used if someone is interested. 
+                        From early experimentation to the Kasumi series and the birth of AegleWorks.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🎯 hxovc Skins</h3>
+                <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
+                    Crafting osu! experiences one skin at a time.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Links</h3>
+                <ul class="footer-links">
+                    <li><a href="https://osu.ppy.sh/users/11624101" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> osu! Profile
+                    </a></li>
+                    <li><a href="https://twitter.com/hxovc" target="_blank">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a></li>
+                    <li><a href="https://github.com/hxovc/hxovc-skins" target="_blank">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>AegleWorks</h3>
+                <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
+                    The creative umbrella under which future releases and versions will be launched.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2024 hxovc - Made with beautiful suffering 💙</p>
+            <p style="margin-top: 1rem; font-size: 1rem;">
+                <em>"Deleted half the UI by accident. Somehow it worked." 🇨🇴</em>
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
