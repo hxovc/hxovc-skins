@@ -47,8 +47,8 @@ This version also marks the debut of  **AegleWorks**, the creative umbrella unde
 ## 🧬 Credits
 
 > 👤 Skin created by **hxovc** (a.k.a Sumis)  
-> 🎨 Art style based on a wavy and modern Kasumi concept
-> 🎼 Tested on 10* star aim maps :fire:
+🎨 Art style based on a wavy and modern Kasumi concept
+ 🎼 Tested on 10* star aim maps :fire:
 > ✨ You~
 
 ---
