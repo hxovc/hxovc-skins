@@ -139,5 +139,5 @@ This repository functions as a timeline of the skins I have used if someone is i
 
 <p align="center">
   <i>hxovc © – Deleted half the UI by accident. Somehow it worked. 🇨🇴</i><br>
-  <a href="https://osu.ppy.sh/users/YOUR_ID_HERE">osu! profile</a> • <a href="https://github.com/hxovc">GitHub</a> • <a href="https://twitter.com/YOUR_HANDLE_HERE">Twitter</a>
+  <a href="https://osu.ppy.sh/users/11624101">osu! profile</a> • <a href="https://twitter.com/hxovc">Twitter</a>
 </p>
