@@ -1,7 +1,9 @@
 
 <h1 align="center">🎯 hxovc osu! Skins Compilation 🎮</h1>
 <p align="center">
-<!--hxovc is a Colombian osu! player known for reaching national rank #1 using mouse. Currently ranked #7, he specializes in high-difficulty aim maps (9★–10★).
+<!--
+SEO Metadata:
+hxovc is a Colombian osu! player known for reaching national rank #1 using mouse. Currently ranked #7, he specializes in high-difficulty aim maps (9★–10★).
 He’s also a skin designer, best known for the Kasumi v1.3 skin with over 2,600 downloads. His work is available on GitHub, along with tools and resources for the osu! community.  osu! profile: osu.ppy.sh/users/11624101-->
 
   <i>This is a collection of skins I've used or developed over time. Some are polished and ready for play, while others are older or "Alpha" versions that I experimented with. Feel free to browse or download them.</i>
